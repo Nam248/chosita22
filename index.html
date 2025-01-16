@@ -10,48 +10,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-    /* เพิ่ม Media Queries สำหรับมือถือ */
+/* Media Queries สำหรับหน้าจอขนาดเล็ก (มือถือ) */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8rem; /* ขนาดตัวอักษรเล็กลงสำหรับหน้าจอมือถือ */
-    }
-
-    header img {
-        height: auto; /* ให้รูปภาพยืดหยุ่นตามขนาดหน้าจอ */
-    }
-
     nav ul {
-        flex-direction: column; /* เปลี่ยนเมนูให้เป็นแนวตั้งบนหน้าจอเล็ก */
+        display: flex; /* ให้เมนูแสดงผลเป็นแนวนอน */
+        justify-content: space-around; /* ให้เมนูมีระยะห่างเท่ากัน */
+        flex-wrap: wrap; /* หากขนาดหน้าจอเล็กลงให้เมนูย้ายไปแถวถัดไป */
     }
 
     nav ul li {
-        margin: 10px 0; /* ลดระยะห่างระหว่างเมนู */
+        margin: 0 10px; /* ลดระยะห่างระหว่างเมนู */
     }
 
     .content h2 {
-        font-size: 1.5rem; /* ปรับขนาดหัวข้อให้เล็กลง */
+        font-size: 1.5rem; /* ขนาดหัวข้อเล็กลง */
     }
 
     .content p {
-        font-size: 1rem; /* ปรับขนาดข้อความให้เล็กลง */
+        font-size: 1rem; /* ขนาดข้อความเล็กลง */
     }
 
     footer .contact-info {
-        font-size: 0.9rem; /* ปรับขนาดข้อความในฟุตเตอร์ */
-        flex-direction: column; /* ให้ข้อมูลติดต่อเป็นแบบตั้ง */
-        align-items: center;
+        display: flex; /* ใช้ flex สำหรับข้อมูลติดต่อ */
+        justify-content: center; /* จัดให้อยู่กลาง */
+        align-items: center; /* จัดแนวข้อมูลให้ตรงกลาง */
+        flex-wrap: wrap; /* ถ้าขนาดเล็กเกินไปจะแบ่งเป็นหลายบรรทัด */
     }
 
     footer .contact-info .info-item {
-        margin: 5px 0; /* ลดระยะห่างในข้อมูลติดต่อ */
+        margin: 0 15px; /* เพิ่มระยะห่างระหว่างข้อมูล */
+        display: flex; /* ให้ไอคอนและข้อความอยู่ในแถวเดียว */
+        align-items: center; /* จัดไอคอนและข้อความให้อยู่กลาง */
+    }
+
+    footer .contact-info .info-item i {
+        font-size: 1.5rem; /* ปรับขนาดไอคอนให้ใหญ่ขึ้น */
+        margin-right: 10px; /* ระยะห่างระหว่างไอคอนและข้อความ */
     }
 
     footer .social-icons a {
-        font-size: 1.5rem; /* ปรับขนาดไอคอนโซเชียลให้เล็กลง */
+        font-size: 2rem; /* ขนาดไอคอนโซเชียลใหญ่ขึ้น */
+        margin: 0 10px; /* ระยะห่างระหว่างไอคอน */
     }
 }
 
-        
         * {
             margin: 0;
             padding: 0;
