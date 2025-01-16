@@ -10,6 +10,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
+    /* เพิ่ม Media Queries สำหรับมือถือ */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem; /* ขนาดตัวอักษรเล็กลงสำหรับหน้าจอมือถือ */
+    }
+
+    header img {
+        height: auto; /* ให้รูปภาพยืดหยุ่นตามขนาดหน้าจอ */
+    }
+
+    nav ul {
+        flex-direction: column; /* เปลี่ยนเมนูให้เป็นแนวตั้งบนหน้าจอเล็ก */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* ลดระยะห่างระหว่างเมนู */
+    }
+
+    .content h2 {
+        font-size: 1.5rem; /* ปรับขนาดหัวข้อให้เล็กลง */
+    }
+
+    .content p {
+        font-size: 1rem; /* ปรับขนาดข้อความให้เล็กลง */
+    }
+
+    footer .contact-info {
+        font-size: 0.9rem; /* ปรับขนาดข้อความในฟุตเตอร์ */
+        flex-direction: column; /* ให้ข้อมูลติดต่อเป็นแบบตั้ง */
+        align-items: center;
+    }
+
+    footer .contact-info .info-item {
+        margin: 5px 0; /* ลดระยะห่างในข้อมูลติดต่อ */
+    }
+
+    footer .social-icons a {
+        font-size: 1.5rem; /* ปรับขนาดไอคอนโซเชียลให้เล็กลง */
+    }
+}
+
+        
         * {
             margin: 0;
             padding: 0;
