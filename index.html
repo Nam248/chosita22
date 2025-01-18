@@ -90,6 +90,9 @@
             display: none; /* ซ่อนเมนูย่อย */
             flex-direction: column;
             background: #002244;
+            max-height: 100px; /* เพิ่มความสูงของเมนูย่อยให้สั้นลง */
+            overflow: hidden; /* ทำให้ไม่แสดงเนื้อหาที่เกินจากความสูงที่กำหนด */
+            transition: max-height 0.3s ease-out;
         }
 
         .submenu a {
@@ -204,6 +207,9 @@
                 left: 0;
                 width: 100%;
                 display: none; /* ซ่อนเมนูย่อยในหน้า desktop */
+                max-height: 100px; /* กำหนดความสูงที่สั้น */
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
             }
         }
 
@@ -214,6 +220,7 @@
 
         .submenu.show {
             display: block; /* แสดงเมนูย่อยเมื่อคลิก */
+            max-height: 200px; /* เมื่อคลิกให้เมนูย่อยขยายความสูงขึ้น */
         }
     </style>
 </head>
