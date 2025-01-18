@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -77,6 +77,21 @@
         .menu a:hover {
             background-color: #FFD700;
             color: #003366;
+        }
+
+        /* เมนูย่อย */
+        .submenu {
+            display: none;
+            flex-direction: column;
+            padding-left: 20px;
+        }
+
+        .submenu a {
+            border-bottom: none;
+        }
+
+        .menu .has-submenu:hover .submenu {
+            display: flex;
         }
 
         /* แสดงเมนูเมื่อเปิด */
@@ -200,7 +215,13 @@
             <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
             <a href="about.html"><i class="fa-solid fa-user"></i> เกี่ยวกับ</a>
             <a href="contact.html"><i class="fas fa-phone-alt"></i> ข้อมูลติดต่อ</a>
-            <a href="apply.html"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
+            <div class="has-submenu">
+                <a href="apply.html"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
+                <div class="submenu">
+                    <a href="apply-online.html"><i class="fas fa-laptop"></i> สมัครเรียนออนไลน์</a>
+                    <a href="apply-guide.html"><i class="fas fa-book"></i> คู่มือการสมัครเรียน</a>
+                </div>
+            </div>
             <a href="courses.html"><i class="fa-solid fa-book"></i> สาขาแผนก</a>
         </div>
     </nav>
