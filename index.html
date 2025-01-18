@@ -29,9 +29,10 @@
         }
 
         header img {
-            width: 100%; /* ทำให้ภาพเต็มขนาดของหน้าจอ */
-            height: auto; /* ให้ความสูงของภาพปรับตามสัดส่วน */
-            object-fit: cover; /* กำหนดให้ภาพครอบคลุมพื้นที่โดยไม่เสียสัดส่วน */
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
         }
 
         /* เมนู */
@@ -87,8 +88,8 @@
         /* เมนูย่อย */
         .submenu {
             display: none; /* ซ่อนเมนูย่อย */
+            flex-direction: column;
             background: #002244;
-            padding-left: 20px;
         }
 
         .submenu a {
@@ -195,6 +196,14 @@
 
             .menu a {
                 border: none;
+            }
+
+            .submenu {
+                position: absolute; /* ทำให้เมนูย่อยอยู่ด้านล่าง */
+                top: 100%;
+                left: 0;
+                width: 100%;
+                display: none; /* ซ่อนเมนูย่อยในหน้า desktop */
             }
         }
 
