@@ -44,7 +44,7 @@
         .menu-toggle {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
+            justify-content: space-between;
             padding: 10px 20px;
             color: white;
             cursor: pointer;
@@ -77,26 +77,6 @@
         .menu a:hover {
             background-color: #FFD700;
             color: #003366;
-        }
-
-        /* เมนูย่อย */
-        .menu li {
-            position: relative;
-        }
-
-        .submenu {
-            display: none;
-            flex-direction: column;
-            background: #004080;
-        }
-
-        .submenu a {
-            padding: 10px 30px; /* เพิ่มระยะให้เมนูย่อยเล็กลง */
-            border-bottom: none;
-        }
-
-        .menu li:hover .submenu {
-            display: flex; /* แสดงเมนูย่อยเมื่อ hover */
         }
 
         /* แสดงเมนูเมื่อเปิด */
@@ -197,19 +177,8 @@
                 border: none;
             }
 
-            .menu li {
-                position: relative;
-            }
-
-            .menu .submenu {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                display: none;
-            }
-
-            .menu li:hover .submenu {
-                display: flex; /* แสดงเมนูย่อยเมื่อ hover */
+            .menu a {
+                border: none;
             }
         }
     </style>
@@ -224,21 +193,16 @@
     <!-- เมนู -->
     <nav>
         <div class="menu-toggle" onclick="toggleMenu()">
+            <span>เมนู</span>
             <i class="fas fa-bars"></i>
         </div>
-        <ul class="menu" id="menu">
-            <li><a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a></li>
-            <li><a href="about.html"><i class="fa-solid fa-user"></i> เกี่ยวกับ</a></li>
-            <li><a href="contact.html"><i class="fas fa-phone-alt"></i> ข้อมูลติดต่อ</a></li>
-            <li>
-                <a href="#"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
-                <ul class="submenu">
-                    <li><a href="#">คู่มือการสมัครเรียน</a></li>
-                    <li><a href="#">สมัครเรียนออนไลน์</a></li>
-                </ul>
-            </li>
-            <li><a href="courses.html"><i class="fa-solid fa-book"></i> สาขาแผนก</a></li>
-        </ul>
+        <div class="menu" id="menu">
+            <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
+            <a href="about.html"><i class="fa-solid fa-user"></i> เกี่ยวกับ</a>
+            <a href="contact.html"><i class="fas fa-phone-alt"></i> ข้อมูลติดต่อ</a>
+            <a href="apply.html"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
+            <a href="courses.html"><i class="fa-solid fa-book"></i> สาขาแผนก</a>
+        </div>
     </nav>
 
     <!-- เนื้อหา -->
