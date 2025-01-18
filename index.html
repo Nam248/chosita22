@@ -90,13 +90,12 @@
             display: none; /* ซ่อนเมนูย่อย */
             flex-direction: column;
             background: #002244;
-            max-height: 100px; /* เพิ่มความสูงของเมนูย่อยให้สั้นลง */
-            overflow: hidden; /* ทำให้ไม่แสดงเนื้อหาที่เกินจากความสูงที่กำหนด */
-            transition: max-height 0.3s ease-out;
+            width: 100%; /* ปรับขนาดให้เท่ากับเมนูหลัก */
         }
 
         .submenu a {
             border-top: 1px solid #444;
+            padding: 10px 20px;
         }
 
         .submenu a:hover {
@@ -205,11 +204,8 @@
                 position: absolute; /* ทำให้เมนูย่อยอยู่ด้านล่าง */
                 top: 100%;
                 left: 0;
-                width: 100%;
+                width: 100%; /* ให้ขนาดเท่ากับเมนูหลัก */
                 display: none; /* ซ่อนเมนูย่อยในหน้า desktop */
-                max-height: 100px; /* กำหนดความสูงที่สั้น */
-                overflow: hidden;
-                transition: max-height 0.3s ease-out;
             }
         }
 
@@ -220,7 +216,6 @@
 
         .submenu.show {
             display: block; /* แสดงเมนูย่อยเมื่อคลิก */
-            max-height: 200px; /* เมื่อคลิกให้เมนูย่อยขยายความสูงขึ้น */
         }
     </style>
 </head>
