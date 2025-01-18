@@ -30,10 +30,6 @@
             padding: 20px 0;
         }
 
-        header h1 {
-            font-size: 2.5rem;
-        }
-
         header img {
             width: 100%;
             height: auto;
@@ -51,7 +47,7 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            flex-wrap: wrap; /* ให้เมนูห่อเมื่อหน้าจอแคบ */
+            flex-wrap: wrap;
             margin: 0;
             padding: 0;
         }
@@ -95,12 +91,13 @@
         footer {
             background: #002855;
             color: white;
-            padding: 20px 0;
+            padding: 10px 0; /* ลดความหนาของ footer */
+            position: relative;
         }
 
         footer .social-icons {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         footer .social-icons a {
@@ -118,47 +115,47 @@
         footer .contact-info {
             display: flex;
             flex-direction: column;
-            align-items: flex-start; /* ชิดซ้าย */
-            padding: 20px; /* เว้นขอบ */
+            align-items: flex-start;
+            padding: 10px 20px; /* ลด padding */
             margin: 0 auto;
-            max-width: 600px; /* จำกัดความกว้าง */
+            max-width: 600px;
         }
 
         footer .contact-info .info-item {
-            margin-bottom: 10px; /* เว้นระยะระหว่างบรรทัด */
+            margin-bottom: 5px; /* ลดระยะห่างระหว่างบรรทัด */
             display: flex;
             align-items: center;
-            font-size: 1rem; /* ขนาดข้อความพอดี */
-            color: white; /* สีข้อความ */
+            font-size: 0.9rem;
         }
 
         footer .contact-info .info-item i {
-            margin-right: 10px; /* ระยะระหว่างไอคอนกับข้อความ */
+            margin-right: 10px;
             font-size: 1.2rem;
         }
 
         footer .contact-info .info-item span {
-            line-height: 1.5; /* ระยะห่างระหว่างบรรทัด */
+            line-height: 1.5;
+        }
+
+        footer .footer-image {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        footer .footer-image img {
+            max-width: 100%; /* ให้ภาพปรับขนาดตามหน้าจอ */
+            height: auto;
         }
 
         footer .copyright {
             text-align: center;
             font-size: 0.8rem;
-            margin-top: 20px;
+            margin-top: 10px;
             color: #bbb;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            nav ul {
-                flex-wrap: wrap; /* ให้เมนูเรียงลงเมื่อจอเล็ก */
-            }
-
-            nav ul li a {
-                padding: 10px 10px;
-                font-size: 0.9rem;
-            }
-
             .content h2 {
                 font-size: 1.5rem;
             }
@@ -168,12 +165,16 @@
             }
 
             footer .contact-info {
-                padding: 15px; /* ลด padding สำหรับหน้าจอเล็ก */
-                font-size: 0.9rem; /* ลดขนาดข้อความ */
+                padding: 10px;
+                font-size: 0.9rem;
             }
 
             footer .social-icons a {
                 font-size: 1.2rem;
+            }
+
+            footer .footer-image img {
+                max-width: 90%; /* ลดขนาดภาพบนหน้าจอเล็ก */
             }
         }
     </style>
@@ -223,6 +224,10 @@
                 <i class="fas fa-envelope"></i>
                 <span>E-mail: saraban@technicchan.ac.th</span>
             </div>
+        </div>
+
+        <div class="footer-image">
+            <img src="technic (1).png" alt="ภาพเพิ่มเติม">
         </div>
 
         <div class="copyright">
