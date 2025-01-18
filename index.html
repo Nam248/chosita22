@@ -95,8 +95,12 @@
         footer {
             background: #002855;
             color: white;
-            text-align: center;
             padding: 20px 0;
+        }
+
+        footer .social-icons {
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         footer .social-icons a {
@@ -112,30 +116,33 @@
         }
 
         footer .contact-info {
-            margin-top: 20px;
-            font-size: 0.9rem;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
+            flex-direction: column;
+            align-items: flex-start; /* ชิดซ้าย */
+            padding: 20px; /* เว้นขอบ */
+            margin: 0 auto;
+            max-width: 600px; /* จำกัดความกว้าง */
         }
 
         footer .contact-info .info-item {
+            margin-bottom: 10px; /* เว้นระยะระหว่างบรรทัด */
             display: flex;
             align-items: center;
-            gap: 5px;
+            font-size: 1rem; /* ขนาดข้อความพอดี */
+            color: white; /* สีข้อความ */
         }
 
         footer .contact-info .info-item i {
-            font-size: 1rem;
+            margin-right: 10px; /* ระยะระหว่างไอคอนกับข้อความ */
+            font-size: 1.2rem;
         }
 
         footer .contact-info .info-item span {
-            font-size: 0.9rem;
-            color: #bbb;
+            line-height: 1.5; /* ระยะห่างระหว่างบรรทัด */
         }
 
         footer .copyright {
+            text-align: center;
             font-size: 0.8rem;
             margin-top: 20px;
             color: #bbb;
@@ -158,6 +165,11 @@
 
             .content p {
                 font-size: 0.9rem;
+            }
+
+            footer .contact-info {
+                padding: 15px; /* ลด padding สำหรับหน้าจอเล็ก */
+                font-size: 0.9rem; /* ลดขนาดข้อความ */
             }
 
             footer .social-icons a {
@@ -206,6 +218,10 @@
             <div class="info-item">
                 <i class="fas fa-phone-alt"></i>
                 <span>โทรศัพท์: 0-3931-1198</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span>E-mail: saraban@technicchan.ac.th</span>
             </div>
         </div>
 
