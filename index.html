@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>วิทยาลัยเทคนิคจันทบุรี</title>
+    <title>วิทยาละ</title>
     <!-- เพิ่มการโหลด Font Awesome สำหรับไอคอน -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <!-- เพิ่มการโหลดฟอนต์ Mitr -->
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;600&display=swap" rel="stylesheet">
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -18,17 +17,16 @@
         }
 
         body {
-            font-family: 'Mitr', sans-serif; /* ใช้ฟอนต์ Mitr */
+            font-family: 'Mitr', sans-serif;
             line-height: 1.6;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
             padding: 0;
-            background-color: #f4f4f4
+            background-color: #f4f4f4;
         }
 
-        /* ส่วนหัว */
         header {
             background: #002855;
             color: white;
@@ -43,11 +41,11 @@
 
         header img {
             width: 100%;
-            height: 300px;
+            height: auto;
+            max-height: 300px;
             object-fit: cover;
         }
 
-        /* เมนู */
         nav {
             background: #003366;
             width: 100%;
@@ -56,7 +54,6 @@
             position: relative;
         }
 
-        /* ปุ่มแปลภาษา */
         .language-selector {
             position: absolute;
             right: 20px;
@@ -78,12 +75,13 @@
             list-style: none;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav ul li {
-            margin: 0 30px;
+            margin: 0 15px;
             position: relative;
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         nav ul li a {
@@ -99,10 +97,6 @@
         nav ul li a:hover {
             background-color: #FFD700;
             color: #003366;
-        }
-
-        nav ul li i {
-            margin-right: 8px;
         }
 
         nav ul li ul {
@@ -123,19 +117,18 @@
             margin: 0;
         }
 
-        /* ส่วนเนื้อหา */
         .content {
-            padding: 50px 20px;
+            padding: 20px;
             text-align: center;
         }
 
         .content h2 {
-            font-size: 2rem;
+            font-size: 1.5rem;
             margin-bottom: 20px;
         }
 
         .content p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #555;
             margin-bottom: 20px;
         }
@@ -146,7 +139,6 @@
             margin-bottom: 20px;
         }
 
-        /* ส่วนท้าย */
         footer {
             background: #002855;
             color: white;
@@ -156,18 +148,14 @@
             position: relative;
         }
 
-        /* ปุ่มโซเชียล */
         footer .social-icons {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
+            margin-top: 10px;
         }
 
         footer .social-icons a {
             color: white;
             margin: 0 10px;
-            font-size: 2rem;
+            font-size: 1.5rem;
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -176,10 +164,9 @@
             color: #FFD700;
         }
 
-        /* ข้อมูลติดต่อ */
         footer .contact-info {
             margin-top: 20px;
-            font-size: 1rem;
+            font-size: 0.9rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
@@ -193,21 +180,46 @@
         }
 
         footer .contact-info .info-item i {
-            font-size: 1.2rem;
+            font-size: 1rem;
         }
 
         footer .contact-info .info-item span {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #bbb;
         }
 
-        /* ข้อความ © 2025 อยู่ด้านล่าง */
         footer .copyright {
             font-size: 0.8rem;
-            margin-top: 30px;
+            margin-top: 20px;
             color: #bbb;
         }
 
+        /* สำหรับหน้าจอเล็ก */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .content h2 {
+                font-size: 1.2rem;
+            }
+
+            .content p {
+                font-size: 0.9rem;
+            }
+
+            footer .social-icons a {
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -216,14 +228,6 @@
     <header>
         <h1><img src="หัวเว็บ3.jpg" alt="ภาพหัวเว็บ"></h1>
     </header>
-    
-    <!-- ฟอร์มแปลภาษา -->
-    <div class="language-selector">
-        <select onchange="changeLanguage(this.value)">
-            <option value="th">ไทย</option>
-            <option value="en">English</option>
-        </select>
-    </div>
 
     <!-- เมนู -->
     <nav>
@@ -245,19 +249,16 @@
     <div class="content">
         <h2>ยินดีต้อนรับสู่วิทยาลัยเทคนิคจันทบุรี</h2>
         <p>สถาบันการอาชีวศึกษาภาคตะวันออก<br>สำนักงานคณะกรรมการการอาชีวศึกษา กระทรวงศึกษาธิการ</p>
-        <p>เรามีคณาจารย์ที่มีความเชี่ยวชาญจากหลากหลายสาขาวิชา และพร้อมที่จะมอบความรู้และประสบการณ์ที่ดีที่สุดให้กับนักศึกษา</p>
     </div>
 
     <!-- ส่วนท้าย -->
-    <span class="info-item"><span class="content"><img src="technic (1).png" width="718" height="367"></span></span>
     <footer>
         <div class="social-icons">
           <a href="https://www.facebook.com/technicchan.ac.th" class="fab fa-facebook"></a>
-          <a href="https://www.tiktok.com/@youraccount" class="fab fa-tiktok"></a>
+          <a href="https://www.tiktok.com/@technicchan" class="fab fa-tiktok"></a>
           <a href="https://www.instagram.com/technicchan_official" class="fab fa-instagram"></a>
       </div>
 
-        <!-- ข้อมูลติดต่อ -->
         <div class="contact-info">
             <div class="info-item">
                 <i class="fas fa-map-marker-alt"></i>
@@ -267,38 +268,11 @@
                 <i class="fas fa-phone-alt"></i>
                 <span>โทรศัพท์: 0-3931-1198</span>
             </div>
-            <div class="info-item">
-                <i class="fas fa-fax"></i>
-                <span>โทรสาร: 0-3931-1699</span>
-            </div>
-            <div class="info-item">
-                <i class="fas fa-envelope"></i>
-                <span>E-mail: saraban@technicchan.ac.th</span>
-            </div>
         </div>
 
-        <!-- ข้อความ © 2025 -->
         <div class="copyright">
             <p>&copy; 2024 วิทยาลัยเทคนิคจันทบุรี</p>
         </div>
     </footer>
-
-    <!-- สคริปต์การเปลี่ยนภาษา -->
-    <script>
-        function changeLanguage(language) {
-            if (language === 'en') {
-                document.querySelector("header h1").textContent = "Sample University";
-                document.querySelector(".content h2").textContent = "Welcome to Sample University";
-                document.querySelector(".content p").textContent = "We are a leading educational institution with a goal to develop students with knowledge, skills, and abilities to thrive in a rapidly changing world.";
-                document.querySelector("footer .copyright p").textContent = "&copy; 2025 Sample University";
-            } else {
-                document.querySelector("header h1").textContent = "มหาวิทยาลัยตัวอย่าง";
-                document.querySelector(".content h2").textContent = "ยินดีต้อนรับสู่มหาวิทยาลัยตัวอย่าง";
-                document.querySelector(".content p").textContent = "เราเป็นสถาบันการศึกษาชั้นนำที่มีเป้าหมายในการพัฒนานักศึกษาให้มีความรู้ ความสามารถ และทักษะที่พร้อมสำหรับการทำงานในโลกแห่งการเปลี่ยนแปลงที่รวดเร็ว";
-                document.querySelector("footer .copyright p").textContent = "&copy; 2025 มหาวิทยาลัยตัวอย่าง";
-            }
-        }
-    </script>
-
 </body>
 </html>
