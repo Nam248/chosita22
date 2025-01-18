@@ -85,9 +85,20 @@
             color: #003366;
         }
 
-        /* แสดงเมนูเมื่อเปิด */
-        .menu.show {
-            display: flex;
+        /* เมนูย่อย */
+        .submenu {
+            display: none; /* ซ่อนเมนูย่อย */
+            flex-direction: column;
+            background: #002244;
+        }
+
+        .submenu a {
+            border-top: 1px solid #444;
+        }
+
+        .submenu a:hover {
+            background-color: #FFD700;
+            color: #003366;
         }
 
         /* เนื้อหา */
@@ -206,8 +217,8 @@
             <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
             <a href="about.html"><i class="fa-solid fa-user"></i> เกี่ยวกับ</a>
             <a href="contact.html"><i class="fas fa-phone-alt"></i> ข้อมูลติดต่อ</a>
-            <a href="apply.html"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
-            <div class="submenu">
+            <a href="apply.html" onclick="toggleSubMenu()"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
+            <div class="submenu" id="submenu">
                 <a href="online-apply.html"><i class="fas fa-laptop"></i> สมัครเรียนออนไลน์</a>
                 <a href="apply-guide.html"><i class="fas fa-book"></i> คู่มือการสมัครเรียน</a>
             </div>
@@ -254,6 +265,11 @@
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('show');
+        }
+
+        function toggleSubMenu() {
+            const submenu = document.getElementById('submenu');
+            submenu.classList.toggle('show');
         }
     </script>
 </body>
