@@ -38,39 +38,31 @@
         /* เมนู */
         nav {
             background: #003366;
+            display: flex;
+            justify-content: flex-end; /* เมนูไปทางขวา */
+            align-items: center;
+            padding: 10px 20px;
             position: relative;
         }
 
         .menu-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
+            display: none;
             color: white;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        .menu-toggle i {
             font-size: 1.8rem;
+            cursor: pointer;
         }
 
         .menu {
-            display: none; /* ซ่อนเมนูในตอนแรก */
-            flex-direction: column;
-            background: #003366;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            z-index: 10;
+            display: flex;
+            list-style: none;
+            gap: 15px; /* ระยะห่างระหว่างเมนู */
         }
 
         .menu a {
             text-decoration: none;
             color: white;
-            padding: 10px 20px;
-            border-bottom: 1px solid #444;
+            padding: 10px 15px;
+            border-radius: 5px;
             transition: background-color 0.3s;
         }
 
@@ -79,106 +71,64 @@
             color: #003366;
         }
 
-        /* แสดงเมนูเมื่อเปิด */
-        .menu.show {
-            display: flex;
+        /* เมนูย่อย */
+        .menu li {
+            position: relative;
         }
 
-        /* เนื้อหา */
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .content h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .content img {
-            margin-top: 20px;
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* ส่วนท้าย */
-        footer {
-            background: #002855;
-            color: white;
-            padding: 10px 0;
-        }
-
-        footer .social-icons {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        footer .social-icons a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer .social-icons a:hover {
-            color: #FFD700;
-        }
-
-        footer .contact-info {
-            display: flex;
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #004080;
             flex-direction: column;
-            align-items: flex-start;
+            list-style: none;
+            z-index: 10;
+        }
+
+        .submenu a {
             padding: 10px 20px;
-            margin: 0 auto;
-            max-width: 600px;
+            white-space: nowrap;
         }
 
-        footer .contact-info .info-item {
-            margin-bottom: 5px;
+        .submenu a:hover {
+            background-color: #FFD700;
+            color: #003366;
+        }
+
+        .menu li:hover .submenu {
             display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-        }
-
-        footer .contact-info .info-item i {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-
-        footer .contact-info .info-item span {
-            line-height: 1.5;
-        }
-
-        footer .copyright {
-            text-align: center;
-            font-size: 0.8rem;
-            margin-top: 10px;
-            color: #bbb;
         }
 
         /* Responsive */
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .menu-toggle {
-                display: none; /* ซ่อนปุ่ม hamburger บนหน้าจอใหญ่ */
+                display: block;
             }
 
             .menu {
-                display: flex; /* แสดงเมนูแนวนอน */
-                flex-direction: row;
-                position: static;
-                width: auto;
-                border: none;
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: #003366;
+                width: 100%;
+                padding: 10px 0;
             }
 
-            .menu a {
-                border: none;
+            .menu.show {
+                display: flex;
+            }
+
+            .submenu {
+                position: static;
+                display: none;
+            }
+
+            .menu li .submenu.show {
+                display: flex;
             }
         }
     </style>
@@ -195,13 +145,19 @@
         <div class="menu-toggle" onclick="toggleMenu()">
             <i class="fas fa-bars"></i>
         </div>
-        <div class="menu" id="menu">
-            <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
-            <a href="about.html"><i class="fa-solid fa-user"></i> เกี่ยวกับ</a>
-            <a href="contact.html"><i class="fas fa-phone-alt"></i> ข้อมูลติดต่อ</a>
-            <a href="apply.html"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
-            <a href="courses.html"><i class="fa-solid fa-book"></i> สาขาแผนก</a>
-        </div>
+        <ul class="menu" id="menu">
+            <li><a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a></li>
+            <li><a href="about.html"><i class="fa-solid fa-user"></i> เกี่ยวกับ</a></li>
+            <li><a href="contact.html"><i class="fas fa-phone-alt"></i> ข้อมูลติดต่อ</a></li>
+            <li>
+                <a href="#" onclick="toggleSubmenu(event)"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
+                <ul class="submenu" id="submenu">
+                    <li><a href="#">คู่มือการสมัครเรียน</a></li>
+                    <li><a href="#">สมัครเรียนออนไลน์</a></li>
+                </ul>
+            </li>
+            <li><a href="courses.html"><i class="fa-solid fa-book"></i> สาขาแผนก</a></li>
+        </ul>
     </nav>
 
     <!-- เนื้อหา -->
@@ -243,6 +199,12 @@
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('show');
+        }
+
+        function toggleSubmenu(event) {
+            event.preventDefault();
+            const submenu = document.getElementById('submenu');
+            submenu.classList.toggle('show');
         }
     </script>
 </body>
