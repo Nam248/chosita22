@@ -181,33 +181,32 @@
         }
 
         /* Responsive */
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.2rem; /* ขนาดฟอนต์ส่วนหัวสำหรับมือถือ */
-            }
-
+        @media (max-width: 767px) {
             .content h2 {
-                font-size: 1.3rem; /* ขนาดฟอนต์หัวข้อเนื้อหาสำหรับมือถือ */
+                font-size: 1.5rem; /* ลดขนาดฟอนต์บนมือถือ */
             }
 
             .content p {
-                font-size: 0.9rem; /* ขนาดฟอนต์เนื้อหาสำหรับมือถือ */
+                font-size: 0.9rem; /* ลดขนาดฟอนต์ข้อความ */
+            }
+
+            .menu a {
+                font-size: 1.2rem; /* ปรับขนาดฟอนต์เมนู */
+            }
+
+            footer .social-icons a {
+                font-size: 1.2rem; /* ปรับขนาดไอคอนโซเชียล */
             }
 
             footer .contact-info .info-item {
-                font-size: 0.8rem; /* ขนาดฟอนต์ของข้อมูลติดต่อสำหรับมือถือ */
+                font-size: 0.8rem; /* ลดขนาดฟอนต์ข้อมูลติดต่อ */
             }
 
             footer .copyright {
-                font-size: 0.7rem; /* ขนาดฟอนต์ของลิขสิทธิ์สำหรับมือถือ */
-            }
-
-            .menu-toggle {
-                font-size: 1.4rem; /* ขนาดฟอนต์ปุ่มเมนูสำหรับมือถือ */
+                font-size: 0.7rem; /* ลดขนาดฟอนต์ลิขสิทธิ์ */
             }
         }
 
-        /* Responsive for larger screens (Tablets and Desktops) */
         @media (min-width: 768px) {
             .menu-toggle {
                 display: none; /* ซ่อนปุ่ม hamburger บนหน้าจอใหญ่ */
