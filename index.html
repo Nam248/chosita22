@@ -71,13 +71,7 @@
             color: white;
             padding: 10px 20px;
             border-bottom: 1px solid #444;
-            display: flex;
-            align-items: center;
             transition: background-color 0.3s;
-        }
-
-        .menu a i {
-            margin-right: 10px;
         }
 
         .menu a:hover {
@@ -85,20 +79,9 @@
             color: #003366;
         }
 
-        /* เมนูย่อย */
-        .submenu {
-            display: none; /* ซ่อนเมนูย่อย */
-            flex-direction: column;
-            background: #002244;
-        }
-
-        .submenu a {
-            border-top: 1px solid #444;
-        }
-
-        .submenu a:hover {
-            background-color: #FFD700;
-            color: #003366;
+        /* แสดงเมนูเมื่อเปิด */
+        .menu.show {
+            display: flex;
         }
 
         /* เนื้อหา */
@@ -108,7 +91,7 @@
         }
 
         .content h2 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             margin-bottom: 20px;
         }
 
@@ -181,7 +164,7 @@
         }
 
         /* Responsive */
-        @media (min-width: 768px) {
+        @media (max-width: 768px) {
             .menu-toggle {
                 display: none; /* ซ่อนปุ่ม hamburger บนหน้าจอใหญ่ */
             }
@@ -197,15 +180,16 @@
             .menu a {
                 border: none;
             }
-        }
 
-        /* เพิ่มคลาสนี้ให้เมนูแสดง */
-        .menu.show {
-            display: flex;
-        }
+            .content h2 {
+                font-size: 1.4rem; /* ปรับขนาดตัวอักษรบนมือถือ */
+                text-align: center; /* จัดตำแหน่งข้อความตรงกลาง */
+                margin-bottom: 15px;
+            }
 
-        .submenu.show {
-            display: flex; /* แสดงเมนูย่อยเมื่อคลิก */
+            .content p {
+                font-size: 1rem; /* ปรับขนาดตัวอักษรบนมือถือ */
+            }
         }
     </style>
 </head>
@@ -226,11 +210,7 @@
             <a href="index.html"><i class="fas fa-home"></i> หน้าหลัก</a>
             <a href="about.html"><i class="fa-solid fa-user"></i> เกี่ยวกับ</a>
             <a href="contact.html"><i class="fas fa-phone-alt"></i> ข้อมูลติดต่อ</a>
-            <a href="apply.html" onclick="toggleSubMenu(event)"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
-            <div class="submenu" id="submenu">
-                <a href="online-apply.html"><i class="fas fa-laptop"></i> สมัครเรียนออนไลน์</a>
-                <a href="apply-guide.html"><i class="fas fa-book"></i> คู่มือการสมัครเรียน</a>
-            </div>
+            <a href="apply.html"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
             <a href="courses.html"><i class="fa-solid fa-book"></i> สาขาแผนก</a>
         </div>
     </nav>
@@ -271,17 +251,9 @@
     </footer>
 
     <script>
-        // ฟังก์ชันสำหรับเปิด/ปิดเมนู
         function toggleMenu() {
             const menu = document.getElementById('menu');
             menu.classList.toggle('show');
-        }
-
-        // ฟังก์ชันสำหรับเปิด/ปิดเมนูย่อยในสมัครเรียน
-        function toggleSubMenu(event) {
-            event.preventDefault(); // ป้องกันการเปลี่ยนเส้นทางเมื่อคลิก
-            const submenu = document.getElementById('submenu');
-            submenu.classList.toggle('show');
         }
     </script>
 </body>
