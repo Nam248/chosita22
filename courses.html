@@ -105,24 +105,52 @@
             color: #003366;
         }
 
-        /* ส่วนเนื้อหา */
-        .content {
-            padding: 20px;
-            max-width: 900px;
-            margin: 20px auto;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .content h2 {
-            color: #003366;
-            margin-bottom: 15px;
-        }
-
-        .content p {
-            margin-bottom: 10px;
-        }
+        .container {
+    width: 100%;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+.department {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+}
+.department-item {
+    text-align: center;
+}
+.department-item img {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 10px;
+    transition: opacity 0.3s;
+}
+.department-item img:hover {
+    opacity: 0.8;
+}
+.department-item a {
+    display: block;
+    margin-top: 10px;
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.department-item a:hover {
+    color: #666;
+}
 
         /* ส่วนท้าย */
         footer {
@@ -242,16 +270,101 @@
     </nav>
 
     <!-- เนื้อหา -->
-    <div class="content">
-        <h2>แผนกต่างๆ ของวิทยาลัย</h2>
-        <p>1. แผนกช่างยนต์</p>
-        <p>2. แผนกช่างไฟฟ้า</p>
-        <p>3. แผนกช่างอิเล็กทรอนิกส์</p>
-        <p>4. แผนกคอมพิวเตอร์ธุรกิจ</p>
-        <p>5. แผนกการตลาด</p>
-        <p>6. แผนกช่างกลโรงงาน</p>
-        <p>7. แผนกการโรงแรม</p>
+    <div class="container">
+    <h2>ข้อมูลแผนก</h2>
+    <div class="department">
+        <div class="department-item">
+            <a href="construction.html">
+                <img src="1.png" alt="ช่างก่อสร้าง">
+                <span>แผนกช่างก่อสร้าง</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="automotive.html">
+                <img src="2.png" alt="ช่างยนต์">
+                <span>แผนกช่างยนต์</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="mechanical.html">
+                <img src="3.png" alt="ช่างกล">
+                <span>แผนกช่างกล</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="welding.html">
+                <img src="4.png" alt="ช่างเชื่อม">
+                <span>แผนกช่างเชื่อม</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="electrical.html">
+                <img src="5.png" alt="ช่างไฟฟ้า">
+                <span>แผนกช่างไฟฟ้า</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="electronics.html">
+                <img src="6.png" alt="ช่างอิเล็กทรอนิกส์">
+                <span>แผนกช่างอิเล็กทรอนิกส์</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="mechatronics.html">
+                <img src="7.png" alt="ช่างเมคคาทรอนิกส์">
+                <span>แผนกช่างเมคคาทรอนิกส์</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="computer-technology.html">
+                <img src="8.png" alt="เทคนิคคอมพิวเตอร์">
+                <span>แผนกเทคนิคคอมพิวเตอร์</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="jewelry.html">
+                <img src="9.png" alt="เครื่องประดับอัญมณี">
+                <span>แผนกเครื่องประดับอัญมณี</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="accounting.html">
+                <img src="10.png" alt="การบัญชี">
+                <span>แผนกการบัญชี</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="marketing.html">
+                <img src="11.png" alt="การตลาด">
+                <span>แผนกการตลาด</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="secretary.html">
+                <img src="12.png" alt="การเลขานุการ">
+                <span>แผนกการเลขานุการ</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="digital-business-technology.html">
+                <img src="13.png" alt="เทคโนโลยีธุรกิจดิจิทัล">
+                <span>แผนกเทคโนโลยีธุรกิจดิจิทัล</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="information-technology.html">
+                <img src="14.png" alt="เทคโนโลยีสารสนเทศ">
+                <span>แผนกเทคโนโลยีสารสนเทศ</span>
+            </a>
+        </div>
+        <div class="department-item">
+            <a href="logistics-management.html">
+                <img src="15.png" alt="แผนกการจัดการโลจิสติกส์">
+                <span>แผนกการจัดการโลจิสติกส์</span>
+            </a>
+        </div>
     </div>
+</div>
 
     <!-- ส่วนท้าย -->
     <footer>
