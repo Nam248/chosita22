@@ -30,11 +30,20 @@
         }
 
         header img {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: cover;
-        }
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 15px; /* เพิ่มขอบโค้งให้ภาพ */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ภาพ */
+    transition: transform 0.3s ease, filter 0.3s ease; /* เพิ่มการเปลี่ยนแปลงเมื่อตัวภาพถูกโฮเวอร์ */
+}
+
+/* เอฟเฟกต์เมื่อโฮเวอร์ */
+header img:hover {
+    transform: scale(1.05); /* ขยายภาพเมื่อโฮเวอร์ */
+    filter: blur(2px); /* เพิ่มการเบลอเมื่อโฮเวอร์ */
+}
 
         /* เมนู */
         nav {
