@@ -215,7 +215,16 @@
 
     <!-- ส่วนหัว -->
     <header>
-        <h1><img src="หัวเว็บ3.jpg" alt="ภาพหัวเว็บ"></h1>
+        <h1>
+            <picture>
+                <!-- สำหรับหน้าจอมือถือ (ขนาดหน้าจอเล็กกว่า 768px) -->
+                <source media="(max-width: 768px)" srcset="หัวเว็บมือถือ.jpg">
+                <!-- สำหรับหน้าจอคอมพิวเตอร์ (ขนาดหน้าจอใหญ่กว่า 768px) -->
+                <source media="(min-width: 769px)" srcset="หัวเว็บ2.jpg">
+                <!-- รูปหลักที่จะใช้ถ้าไม่ตรงกับเงื่อนไขด้านบน -->
+                <img src="มือถือ.jpg" alt="ภาพหัวเว็บ">
+            </picture>
+        </h1>
     </header>
 
     <!-- เมนู -->
@@ -286,5 +295,6 @@
             submenu.classList.toggle('show');
         }
     </script>
+
 </body>
 </html>
