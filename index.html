@@ -44,6 +44,8 @@ header img:hover {
         nav {
             background: #003366;
             position: relative;
+            border-radius: 10px; /* เพิ่มขอบโค้งให้กับเมนู */
+    overflow: hidden; /* ป้องกันไม่ให้ขอบโค้งจากเมนูหลุดออก */
         }
 
         .menu-toggle {
@@ -71,16 +73,18 @@ header img:hover {
             z-index: 10;
         }
 
-        .menu a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            border-bottom: 1px solid #444;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s;
-            font-size: min(4vw, 16px); /* ปรับขนาดข้อความในเมนู */
-        }
+       /* เมนูหลัก */
+.menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-bottom: 1px solid #444;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s;
+    font-size: min(4vw, 16px);
+    border-radius: 5px; /* เพิ่มขอบโค้งให้กับแต่ละลิงก์ในเมนู */
+}
 
         .menu a i {
             margin-right: 10px;
@@ -89,6 +93,7 @@ header img:hover {
         .menu a:hover {
             background-color: #FFD700;
             color: #003366;
+                border-radius: 5px; /* ให้ขอบโค้งเมื่อโฮเวอร์ */
         }
 
         /* เมนูย่อย */
@@ -96,16 +101,20 @@ header img:hover {
             display: none; /* ซ่อนเมนูย่อย */
             flex-direction: column;
             background: #002244;
+            border-top: 1px solid #444;
+            border-radius: 5px; /* เพิ่มขอบโค้งให้กับเมนูย่อย */
         }
 
         .submenu a {
-            border-top: 1px solid #444;
+           border-top: 1px solid #444;
+            border-radius: 5px; /* เพิ่มขอบโค้งให้กับเมนูย่อย */
         }
 
         .submenu a:hover {
-            background-color: #FFD700;
-            color: #003366;
-        }
+    background-color: #FFD700;
+    color: #003366;
+    border-radius: 5px; /* ให้ขอบโค้งเมื่อโฮเวอร์ */
+}
 
         /* เนื้อหา */
         .content {
