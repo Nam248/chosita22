@@ -15,11 +15,11 @@
         }
 
         body {
-	font-family: 'Mitr', sans-serif;
-	line-height: 1.6;
-	background-color: #f4f4f4;
-	/* [disabled]font-size: min(4vw, 16px); */ /* ปรับขนาดข้อความ */
+            font-family: 'Mitr', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
         }
+
         /* ส่วนหัว */
         header {
             background: #002855;
@@ -35,15 +35,15 @@
             object-fit: cover;
         }
 
-        /* เอฟเฟกต์เมื่อโฮเวอร์ */
         header img:hover {
-            transform: scale(1.05); /* ขยายภาพเมื่อโฮเวอร์ */
+            transform: scale(1.05);
         }
 
         /* เมนู */
         nav {
-            background: #003366;
+            background-color: #003366;
             position: relative;
+            z-index: 10;
         }
 
         .menu-toggle {
@@ -63,12 +63,16 @@
         .menu {
             display: none;
             flex-direction: column;
-            background: #003366;
+            background-color: #003366;
             position: absolute;
             top: 100%;
             left: 0;
             width: 100%;
-            z-index: 10;
+            z-index: 20;
+        }
+
+        .menu.show {
+            display: flex;
         }
 
         .menu a {
@@ -80,7 +84,6 @@
             align-items: center;
             transition: background-color 0.3s;
             font-size: min(4vw, 16px);
-            border-radius: 5px;
             gap: 10px;
         }
 
@@ -93,6 +96,11 @@
             display: none;
             flex-direction: column;
             background: #002244;
+            z-index: 30;
+        }
+
+        .submenu.show {
+            display: flex;
         }
 
         .submenu a {
@@ -104,22 +112,26 @@
             color: #003366;
         }
 
+        /* Responsive */
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .menu {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                width: auto;
+                border: none;
+            }
+
+            .menu a {
+                border: none;
+            }
+        }
+
         /* เนื้อหา */
-      nav {
-            background-color: #555;
-            overflow: hidden;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #777;
-        }
         section {
             padding: 20px;
             max-width: 1200px;
@@ -128,14 +140,17 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
+
         h1, h2 {
-	color: #444;
-	font-family: Mitr, sans-serif;
+            color: #444;
+            font-family: Mitr, sans-serif;
         }
+
         ul {
             list-style-type: disc;
             padding-left: 20px;
         }
+
         .content {
             border: 1px solid #ddd;
             padding: 20px;
@@ -143,9 +158,11 @@
             border-radius: 8px;
             background-color: #f9f9f9;
         }
+
         .content h3 {
             color: #555;
         }
+
         /* ส่วนท้าย */
         footer {
             background: #002855;
@@ -161,7 +178,7 @@
         footer .social-icons a {
             color: white;
             margin: 0 10px;
-            font-size: min(6vw, 24px); /* ปรับขนาดไอคอนโซเชียล */
+            font-size: min(6vw, 24px);
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -183,12 +200,12 @@
             margin-bottom: 5px;
             display: flex;
             align-items: center;
-            font-size: min(3vw, 14px); /* ปรับขนาดข้อความในฟุตเตอร์ */
+            font-size: min(3vw, 14px);
         }
 
         footer .contact-info .info-item i {
             margin-right: 10px;
-            font-size: min(3vw, 18px); /* ปรับขนาดไอคอนในฟุตเตอร์ */
+            font-size: min(3vw, 18px);
         }
 
         footer .contact-info .info-item span {
@@ -197,61 +214,48 @@
 
         footer .copyright {
             text-align: center;
-            font-size: min(3vw, 12px); /* ปรับขนาดข้อความในส่วนท้าย */
+            font-size: min(3vw, 12px);
             margin-top: 10px;
             color: #bbb;
         }
-
-        /* Responsive */
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none; /* ซ่อนปุ่ม hamburger บนหน้าจอใหญ่ */
-            }
-
-            .menu {
-                display: flex; /* แสดงเมนูแนวนอน */
-                flex-direction: row;
-                position: static;
-                width: auto;
-                border: none;
-            }
-
-            .menu a {
-                border: none;
-            }
-        }
-
-        /* เพิ่มคลาสนี้ให้เมนูแสดง */
-        .menu.show {
-            display: flex;
-        }
-
-        .submenu.show {
-            display: flex; /* แสดงเมนูย่อยเมื่อคลิก */
-        }
-    .content ul li b {
-	color: #444;
-}
     </style>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('show');
+        }
+
+        function toggleSubMenu(event) {
+            event.preventDefault(); // ป้องกันการคลิกเปิดลิงก์
+            const submenu = document.getElementById('submenu');
+            submenu.classList.toggle('show');
+        }
+
+        // ตรวจสอบการคลิกนอกเมนูเพื่อปิด
+        document.addEventListener('click', (event) => {
+            const menu = document.getElementById('menu');
+            const submenu = document.getElementById('submenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+
+            if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+                menu.classList.remove('show');
+                submenu.classList.remove('show');
+            }
+        });
+    </script>
 </head>
 <body>
-
-    <!-- ส่วนหัว -->
     <header>
-      <h1>
+        <h1>
             <picture>
-                <!-- สำหรับหน้าจอมือถือ (ขนาดหน้าจอเล็กกว่า 768px) -->
-                <source media="(max-width: 768px)" srcset="ม1.png">
-                <!-- สำหรับหน้าจอคอมพิวเตอร์ (ขนาดหน้าจอใหญ่กว่า 768px) -->
-                <source media="(min-width: 769px)" srcset="หัวเว็บชื่อแผนก/1ค.png">
-                <!-- รูปหลักที่จะใช้ถ้าไม่ตรงกับเงื่อนไขด้านบน -->
-                <img src="ม1.png" alt="ภาพหัวเว็บ">
+                <source media="(max-width: 768px)" srcset="ม2.png">
+                <source media="(min-width: 769px)" srcset="หัวเว็บชื่อแผนก/2ค.png">
+                <img src="ม2.png" alt="ภาพหัวเว็บ">
             </picture>
         </h1>
     </header>
 
-    <!-- เมนู -->
-<nav>
+    <nav>
         <div class="menu-toggle" onclick="toggleMenu()">
             <span>เมนู</span>
             <i class="fas fa-bars"></i>
@@ -269,92 +273,89 @@
         </div>
     </nav>
 
-<section>
-    <div class="content">
-        <h2>ระดับการศึกษา</h2>
-        <p>วิทยาลัยเทคนิคจันทบุรีเปิดสอนในระดับประกาศนียบัตรวิชาชีพ (ปวช.) ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) และระดับปริญญาตรี (ทลบ.)</p>
-    </div>
+    <section>
+        <div class="content">
+            <h2>ระดับการศึกษา</h2>
+            <p>วิทยาลัยเทคนิคจันทบุรีเปิดสอนในระดับประกาศนียบัตรวิชาชีพ (ปวช.) ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) และระดับปริญญาตรี (ทลบ.)</p>
+        </div>
 
-    <div class="content">
-        <h2>เนื้อหาการเรียนการสอน</h2>
-        <ul>
-            <li><b>พื้นฐานงานก่อสร้าง</b>
-                <ul>
-                    <li>การอ่านและเขียนแบบก่อสร้าง</li>
-                    <li>การวัดและประมาณการวัสดุ</li>
-                    <li>พื้นฐานการออกแบบโครงสร้างและสถาปัตยกรรม</li>
-                </ul>
-            </li>
-            <li><b>งานโครงสร้างและวัสดุก่อสร้าง</b>
-                <ul>
-                    <li>การออกแบบโครงสร้างพื้นฐาน เช่น คาน เสา พื้น และหลังคา</li>
-                    <li>คุณสมบัติและการเลือกใช้วัสดุก่อสร้าง</li>
-                    <li>การตรวจสอบคุณภาพวัสดุ</li>
-                </ul>
-            </li>
-            <li><b>การก่อสร้างและเทคนิคการทำงาน</b>
-                <ul>
-                    <li>การวางผังงานก่อสร้าง</li>
-                    <li>เทคนิคการก่ออิฐ ฉาบปูน และงานคอนกรีต</li>
-                    <li>การติดตั้งระบบประปา ไฟฟ้า และงานตกแต่ง</li>
-                </ul>
-            </li>
-            <li><b>การจัดการงานก่อสร้าง</b>
-                <ul>
-                    <li>การบริหารโครงการก่อสร้าง</li>
-                    <li>การควบคุมต้นทุนและเวลาในการก่อสร้าง</li>
-                    <li>การวางแผนและจัดการความปลอดภัยในไซต์งาน</li>
-                </ul>
-            </li>
-            <li><b>การใช้เครื่องมือและเทคโนโลยีในงานก่อสร้าง</b>
-                <ul>
-                    <li>การใช้งานเครื่องมือและอุปกรณ์ก่อสร้าง</li>
-                    <li>การใช้ซอฟต์แวร์ออกแบบ เช่น AutoCAD, SketchUp หรือ Revit</li>
-                    <li>การใช้เทคโนโลยีใหม่ ๆ เช่น BIM</li>
-                </ul>
-            </li>
-            <li><b>การวิเคราะห์และแก้ไขปัญหางานก่อสร้าง</b>
-                <ul>
-                    <li>การวิเคราะห์ปัญหาโครงสร้างและการซ่อมแซม</li>
-                    <li>การประเมินและตรวจสอบความปลอดภัยของอาคาร</li>
-                </ul>
-            </li>
-            <li><b>กฎหมายและมาตรฐานการก่อสร้าง</b>
-                <ul>
-                    <li>กฎหมายอาคารและผังเมือง</li>
-                    <li>มาตรฐานงานก่อสร้างและข้อกำหนดความปลอดภัย</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+        <div class="content">
+            <h2>เนื้อหาการเรียนการสอน</h2>
+            <ul>
+                <li><b>พื้นฐานงานก่อสร้าง</b>
+                    <ul>
+                        <li>การอ่านและเขียนแบบก่อสร้าง</li>
+                        <li>การวัดและประมาณการวัสดุ</li>
+                        <li>พื้นฐานการออกแบบโครงสร้างและสถาปัตยกรรม</li>
+                    </ul>
+                </li>
+                <li><b>งานโครงสร้างและวัสดุก่อสร้าง</b>
+                    <ul>
+                        <li>การออกแบบโครงสร้างพื้นฐาน เช่น คาน เสา พื้น และหลังคา</li>
+                        <li>คุณสมบัติและการเลือกใช้วัสดุก่อสร้าง</li>
+                        <li>การตรวจสอบคุณภาพวัสดุ</li>
+                    </ul>
+                </li>
+                <li><b>การก่อสร้างและเทคนิคการทำงาน</b>
+                    <ul>
+                        <li>การวางผังงานก่อสร้าง</li>
+                        <li>เทคนิคการก่ออิฐ ฉาบปูน และงานคอนกรีต</li>
+                        <li>การติดตั้งระบบประปา ไฟฟ้า และงานตกแต่ง</li>
+                    </ul>
+                </li>
+                <li><b>การจัดการงานก่อสร้าง</b>
+                    <ul>
+                        <li>การบริหารโครงการก่อสร้าง</li>
+                        <li>การควบคุมต้นทุนและเวลาในการก่อสร้าง</li>
+                        <li>การวางแผนและจัดการความปลอดภัยในไซต์งาน</li>
+                    </ul>
+                </li>
+                <li><b>การใช้เครื่องมือและเทคโนโลยีในงานก่อสร้าง</b>
+                    <ul>
+                        <li>การใช้งานเครื่องมือและอุปกรณ์ก่อสร้าง</li>
+                        <li>การใช้ซอฟต์แวร์ออกแบบ เช่น AutoCAD, SketchUp หรือ Revit</li>
+                        <li>การใช้เทคโนโลยีใหม่ ๆ เช่น BIM</li>
+                    </ul>
+                </li>
+                <li><b>การวิเคราะห์และแก้ไขปัญหางานก่อสร้าง</b>
+                    <ul>
+                        <li>การวิเคราะห์ปัญหาโครงสร้างและการซ่อมแซม</li>
+                        <li>การประเมินและตรวจสอบความปลอดภัยของอาคาร</li>
+                    </ul>
+                </li>
+                <li><b>กฎหมายและมาตรฐานการก่อสร้าง</b>
+                    <ul>
+                        <li>กฎหมายอาคารและผังเมือง</li>
+                        <li>มาตรฐานงานก่อสร้างและข้อกำหนดความปลอดภัย</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
 
-    <div class="content">
-        <h2>ทักษะที่ผู้เรียนจะได้รับ</h2>
-        <ul>
-            <li>การเขียนและอ่านแบบก่อสร้างอย่างมืออาชีพ</li>
-            <li>การก่อสร้างและควบคุมคุณภาพงานโครงสร้าง</li>
-            <li>การใช้เครื่องมือในงานก่อสร้างให้ถูกวิธีและปลอดภัย</li>
-            <li>การวางแผนและบริหารงานก่อสร้าง</li>
-            <li>การแก้ไขปัญหาในงานก่อสร้างอย่างมีประสิทธิภาพ</li>
-        </ul>
-    </div>
+        <div class="content">
+            <h2>ทักษะที่ผู้เรียนจะได้รับ</h2>
+            <ul>
+                <li>การเขียนและอ่านแบบก่อสร้างอย่างมืออาชีพ</li>
+                <li>การก่อสร้างและควบคุมคุณภาพงานโครงสร้าง</li>
+                <li>การใช้เครื่องมือในงานก่อสร้างให้ถูกวิธีและปลอดภัย</li>
+                <li>การวางแผนและบริหารงานก่อสร้าง</li>
+                <li>การแก้ไขปัญหาในงานก่อสร้างอย่างมีประสิทธิภาพ</li>
+            </ul>
+        </div>
 
-    <div class="content">
-        <h2>โอกาสและอาชีพหลังเรียนจบ</h2>
-        <ul>
-            <li>ช่างก่อสร้าง/ช่างเทคนิคในงานโครงสร้าง</li>
-            <li>ผู้ควบคุมงานก่อสร้าง (Site Supervisor)</li>
-            <li>ผู้ช่วยวิศวกร/สถาปนิก</li>
-            <li>ผู้รับเหมาก่อสร้าง</li>
-            <li>ช่างประเมินราคาและประมาณการงานก่อสร้าง</li>
-            <li>เจ้าของธุรกิจงานก่อสร้างหรือการตกแต่งภายใน</li>
-        </ul>
-    </div>
-</section>
+        <div class="content">
+            <h2>โอกาสและอาชีพหลังเรียนจบ</h2>
+            <ul>
+                <li>ช่างก่อสร้าง/ช่างเทคนิคในงานโครงสร้าง</li>
+                <li>ผู้ควบคุมงานก่อสร้าง (Site Supervisor)</li>
+                <li>ผู้ช่วยวิศวกร/สถาปนิก</li>
+                <li>ผู้รับเหมาก่อสร้าง</li>
+                <li>ช่างประเมินราคาและประมาณการงานก่อสร้าง</li>
+                <li>เจ้าของธุรกิจงานก่อสร้างหรือการตกแต่งภายใน</li>
+            </ul>
+        </div>
+    </section>
 
-
-
-    <!-- ส่วนท้าย -->
     <footer>
         <div class="social-icons">
             <a href="https://www.facebook.com/technicchan.ac.th" class="fab fa-facebook"></a>
@@ -381,21 +382,5 @@
             <p>&copy; 2024 วิทยาลัยเทคนิคจันทบุรี</p>
         </div>
     </footer>
-
-<script>
-        // ฟังก์ชันสำหรับเปิด/ปิดเมนู
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('show');
-        }
-
-        // ฟังก์ชันสำหรับเปิด/ปิดเมนูย่อยในสมัครเรียน
-        function toggleSubMenu(event) {
-            event.preventDefault(); // ป้องกันการเปลี่ยนเส้นทางเมื่อคลิก
-            const submenu = document.getElementById('submenu');
-            submenu.classList.toggle('show');
-        }
-    </script>
-
 </body>
 </html>
