@@ -15,10 +15,10 @@
         }
 
         body {
-            font-family: 'Mitr', sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            font-size: min(4vw, 16px); /* ปรับขนาดข้อความ */
+	font-family: 'Mitr', sans-serif;
+	line-height: 1.6;
+	background-color: #f4f4f4;
+	/* [disabled]font-size: min(4vw, 16px); */ /* ปรับขนาดข้อความ */
         }
         /* ส่วนหัว */
         header {
@@ -229,13 +229,16 @@
         .submenu.show {
             display: flex; /* แสดงเมนูย่อยเมื่อคลิก */
         }
+    .content ul li b {
+	color: #D6D6D6;
+}
     </style>
 </head>
 <body>
 
     <!-- ส่วนหัว -->
     <header>
-        <h1>
+      <h1>
             <picture>
                 <!-- สำหรับหน้าจอมือถือ (ขนาดหน้าจอเล็กกว่า 768px) -->
                 <source media="(max-width: 768px)" srcset="ม2.png">
@@ -248,7 +251,7 @@
     </header>
 
     <!-- เมนู -->
-    <nav>
+<nav>
         <div class="menu-toggle" onclick="toggleMenu()">
             <span>เมนู</span>
             <i class="fas fa-bars"></i>
@@ -266,7 +269,7 @@
         </div>
     </nav>
 
-   <section>
+<section>
     <div class="content">
         <h2>ระดับการศึกษา</h2>
         <p>วิทยาลัยเทคนิคจันทบุรีเปิดสอนในระดับประกาศนียบัตรวิชาชีพ (ปวช.) และประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</p>
@@ -332,7 +335,7 @@
         </div>
     </footer>
 
-    <script>
+<script>
         // ฟังก์ชันสำหรับเปิด/ปิดเมนู
         function toggleMenu() {
             const menu = document.getElementById('menu');
