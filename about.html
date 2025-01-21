@@ -3,7 +3,7 @@
 <head>อ
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เกี่ยวกับ</title>
+    <title>วิทยาละ</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
@@ -104,23 +104,17 @@
             color: #003366;
         }
 /* ส่วนกลาง */
+/* ส่วนกลาง */
 .main-content {
     padding: 40px;
-   text-align: left; /* ข้อความชิดซ้าย */
+    text-align: center;
     background-color: #f4f4f4;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column; /* จัดข้อความในแนวตั้ง */
-    justify-content: center; /* จัดตำแหน่งให้ข้อความอยู่ตรงกลางแนวตั้ง */
-    align-items: flex-start; /* ข้อความชิดซ้าย */
-    height: 100vh; /* ความสูงของพื้นที่เพื่อให้ข้อความตรงกลาง */
-    padding-left: 50px; /* เพิ่มระยะห่างจากขอบซ้าย */
-    padding-right: 20px; /* เพิ่มระยะห่างจากขอบขวา */
 }
 
 .main-content h2 {
-    font-size: 2.5rem; /* ขนาดฟอนต์ของหัวข้อ */
+    font-size: 2rem;
     color: #003366;
     margin-bottom: 20px;
 }
@@ -154,8 +148,6 @@
 @media (max-width: 768px) {
     .main-content {
         padding: 20px;
-        padding-left: 30px; /* ระยะห่างจากขอบซ้าย */
-        padding-right: 15px; /* ระยะห่างจากขอบขวา */
     }
 
     .styled-image {
@@ -164,9 +156,10 @@
 
     /* ลดขนาดของ h2 เมื่อแสดงผลบนมือถือ */
     .main-content h2 {
-        font-size: 1.8rem; /* ขนาดฟอนต์ที่เหมาะสมสำหรับมือถือ */
+        font-size: 1.5rem; /* ขนาดฟอนต์ที่เหมาะสมสำหรับมือถือ */
     }
 }
+
 
         /* ส่วนท้าย */
         footer {
@@ -280,7 +273,7 @@
             <a href="contact.html"><i class="fas fa-phone-alt"></i> ข้อมูลติดต่อ</a>
             <a href="apply.html" onclick="toggleSubMenu(event)"><i class="fas fa-clipboard-list"></i> สมัครเรียน</a>
             <div class="submenu" id="submenu">
-                <a href="https://admission.vec.go.th/web/Login.htm?mode=manual"><i class="fas fa-laptop"></i> สมัครเรียนออนไลน์</a>
+                <a href="online-apply.html"><i class="fas fa-laptop"></i> สมัครเรียนออนไลน์</a>
                 <a href="apply-guide.html"><i class="fas fa-book"></i> คู่มือการสมัครเรียน</a>
             </div>
             <a href="courses.html"><i class="fa-solid fa-book"></i> สาขาแผนก</a>
