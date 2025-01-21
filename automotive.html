@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="th">
 <head>
     <meta charset="UTF-8">
@@ -41,8 +41,9 @@
 
         /* เมนู */
         nav {
-            background: #003366;
+            background-color: #003366;
             position: relative;
+            overflow: hidden;
         }
 
         .menu-toggle {
@@ -62,12 +63,16 @@
         .menu {
             display: none;
             flex-direction: column;
-            background: #003366;
+            background-color: #003366;
             position: absolute;
             top: 100%;
             left: 0;
             width: 100%;
             z-index: 10;
+        }
+
+        .menu.show {
+            display: flex;
         }
 
         .menu a {
@@ -91,6 +96,10 @@
             display: none;
             flex-direction: column;
             background: #002244;
+        }
+
+        .submenu.show {
+            display: flex;
         }
 
         .submenu a {
@@ -120,74 +129,8 @@
                 border: none;
             }
         }
-
-        .menu.show {
-            display: flex;
-        }
-
-        .submenu.show {
-            display: flex;
-        }
-       <style>
-    nav {
-        background-color: #003366;
-        overflow: hidden;
-    }
-    .menu {
-        display: none; /* ซ่อนเมนูเริ่มต้น */
-        flex-direction: column;
-        background-color: #003366;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-    }
-    .menu.show {
-        display: flex; /* แสดงเมนูเมื่อเพิ่ม class "show" */
-    }
-    .menu a {
-        color: white;
-        padding: 14px 20px;
-        text-decoration: none;
-    }
-    .menu a:hover {
-        background-color: #FFD700;
-        color: #003366;
-    }
-    .submenu {
-        display: none; /* ซ่อนเมนูย่อย */
-        flex-direction: column;
-        background-color: #002244;
-    }
-    .submenu.show {
-        display: flex; /* แสดงเมนูย่อยเมื่อเพิ่ม class "show" */
-    }
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('show');
-    }
-
-    function toggleSubMenu(event) {
-        event.preventDefault();
-        const submenu = document.getElementById('submenu');
-        submenu.classList.toggle('show');
-    }
+       
         /* เนื้อหา */
-      nav {
-            background-color: #555;
-            overflow: hidden;
-        }
-        nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 20px;
-            text-decoration: none;
-        }
-        nav a:hover {
-            background-color: #777;
-        }
         section {
             padding: 20px;
             max-width: 1200px;
@@ -196,14 +139,17 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
+
         h1, h2 {
-	color: #444;
-	font-family: Mitr, sans-serif;
+            color: #444;
+            font-family: Mitr, sans-serif;
         }
+
         ul {
             list-style-type: disc;
             padding-left: 20px;
         }
+
         .content {
             border: 1px solid #ddd;
             padding: 20px;
@@ -211,9 +157,11 @@
             border-radius: 8px;
             background-color: #f9f9f9;
         }
+
         .content h3 {
             color: #555;
         }
+
         /* ส่วนท้าย */
         footer {
             background: #002855;
@@ -229,7 +177,7 @@
         footer .social-icons a {
             color: white;
             margin: 0 10px;
-            font-size: min(6vw, 24px); /* ปรับขนาดไอคอนโซเชียล */
+            font-size: min(6vw, 24px);
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -251,12 +199,12 @@
             margin-bottom: 5px;
             display: flex;
             align-items: center;
-            font-size: min(3vw, 14px); /* ปรับขนาดข้อความในฟุตเตอร์ */
+            font-size: min(3vw, 14px);
         }
 
         footer .contact-info .info-item i {
             margin-right: 10px;
-            font-size: min(3vw, 18px); /* ปรับขนาดไอคอนในฟุตเตอร์ */
+            font-size: min(3vw, 18px);
         }
 
         footer .contact-info .info-item span {
@@ -265,7 +213,7 @@
 
         footer .copyright {
             text-align: center;
-            font-size: min(3vw, 12px); /* ปรับขนาดข้อความในส่วนท้าย */
+            font-size: min(3vw, 12px);
             margin-top: 10px;
             color: #bbb;
         }
@@ -284,7 +232,6 @@
     </script>
 </head>
 <body>
-    <!-- ส่วนหัว -->
     <header>
         <h1>
             <picture>
@@ -295,7 +242,6 @@
         </h1>
     </header>
 
-    <!-- เมนู -->
     <nav>
         <div class="menu-toggle" onclick="toggleMenu()">
             <span>เมนู</span>
@@ -313,47 +259,11 @@
             <a href="courses.html"><i class="fa-solid fa-book"></i> สาขาแผนก</a>
         </div>
     </nav>
-<!-- ส่วนกลาง -->
-  
-<section>
-    <div class="content">
-        <h2>ระดับการศึกษา</h2>
-        <p>วิทยาลัยเทคนิคจันทบุรีเปิดสอนในระดับประกาศนียบัตรวิชาชีพ (ปวช.) และประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</p>
-    </div>
 
-    <div class="content">
-        <h2>เนื้อหาการเรียนการสอน</h2>
-        <ul>
-          <li><b>การซ่อมบำรุงเครื่องยนต์:</b> เรียนรู้การตรวจสอบและซ่อมแซมเครื่องยนต์ทั้งในรถยนต์และจักรยานยนต์</li>
-            <li><b>ระบบไฟฟ้าในยานยนต์:</b> ศึกษาการทำงานและการซ่อมแซมระบบไฟฟ้าในยานยนต์</li>
-            <li><b>ระบบส่งกำลัง:</b> เรียนรู้การทำงานและการซ่อมแซมระบบส่งกำลังของยานยนต์</li>
-            <li><b>การวิเคราะห์และวินิจฉัยปัญหา:</b> ฝึกทักษะการวิเคราะห์และวินิจฉัยปัญหาที่เกิดขึ้นในระบบต่าง ๆ ของยานยนต์</li>
-        </ul>
-    </div>
+    <section>
+        <!-- ใส่เนื้อหาตรงนี้ -->
+    </section>
 
-    <div class="content">
-        <h2>ทักษะที่นักเรียนจะได้รับ</h2>
-        <ul>
-            <li>ความเข้าใจในโครงสร้างและการทำงานของเครื่องยนต์</li>
-            <li>ทักษะการซ่อมแซมและบำรุงรักษายานยนต์</li>
-            <li>ความสามารถในการวิเคราะห์และวินิจฉัยปัญหาทางเทคนิค</li>
-            <li>ทักษะการใช้เครื่องมือและอุปกรณ์ในการซ่อมบำรุง</li>
-        </ul>
-    </div>
-
-    <div class="content">
-        <h2>แนวทางการประกอบอาชีพ</h2>
-        <ul>
-          <li>ช่างซ่อมบำรุงยานยนต์ในอู่ซ่อมรถยนต์และจักรยานยนต์</li>
-            <li>ช่างซ่อมบำรุงในศูนย์บริการของผู้แทนจำหน่ายยานยนต์</li>
-            <li>ผู้ควบคุมคุณภาพในสายการผลิตยานยนต์</li>
-            <li>ผู้ประกอบการในธุรกิจซ่อมบำรุงยานยนต์</li>
-        </ul>
-    </div>
-</section>
-
-
-    <!-- ส่วนท้าย -->
     <footer>
         <div class="social-icons">
             <a href="https://www.facebook.com/technicchan.ac.th" class="fab fa-facebook"></a>
@@ -380,21 +290,5 @@
             <p>&copy; 2024 วิทยาลัยเทคนิคจันทบุรี</p>
         </div>
     </footer>
-
-<script>
-        // ฟังก์ชันสำหรับเปิด/ปิดเมนู
-        function toggleMenu() {
-            const menu = document.getElementById('menu');
-            menu.classList.toggle('show');
-        }
-
-        // ฟังก์ชันสำหรับเปิด/ปิดเมนูย่อยในสมัครเรียน
-        function toggleSubMenu(event) {
-            event.preventDefault(); // ป้องกันการเปลี่ยนเส้นทางเมื่อคลิก
-            const submenu = document.getElementById('submenu');
-            submenu.classList.toggle('show');
-        }
-    </script>
-
 </body>
 </html>
