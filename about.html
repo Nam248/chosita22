@@ -106,15 +106,16 @@
 /* ส่วนกลาง */
 .main-content {
     padding: 40px;
-    text-align: center;
-    background-color: #f4f4f4; /* สีพื้นหลังที่ดูสะอาดตา */
-    border-radius: 10px; /* มุมมนให้ดูนุ่มนวล */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เงาเบาๆ ให้ความรู้สึกลอยตัว */
+    text-align: left;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .main-content h2 {
     font-size: 2rem;
-    color: #003366; /* สีฟ้าเข้มสำหรับหัวข้อ */
+    color: #003366;
     margin-bottom: 20px;
 }
 
@@ -122,11 +123,11 @@
     font-size: 1.1rem;
     color: #333;
     margin: 10px 0;
-    line-height: 1.6; /* เพิ่มระยะห่างบรรทัดเพื่อให้อ่านง่าย */
+    line-height: 1.6;
 }
 
 .main-content p strong {
-    color: #0056b3; /* สีฟ้าสำหรับคำสำคัญ */
+    color: #0056b3;
 }
 
 .styled-image {
@@ -134,7 +135,7 @@
     height: auto;
     border-radius: 10px;
     margin-top: 20px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับภาพ */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -142,6 +143,23 @@
     transform: scale(1.05);
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+/* สำหรับหน้าจอมือถือหรืออุปกรณ์ขนาดเล็ก */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px;
+    }
+
+    .styled-image {
+        max-width: 100%;
+    }
+
+    /* ลดขนาดของ h2 เมื่อแสดงผลบนมือถือ */
+    .main-content h2 {
+        font-size: 1.5rem; /* ขนาดฟอนต์ที่เหมาะสมสำหรับมือถือ */
+    }
+}
+
 
 @media (max-width: 768px) {
     .main-content {
