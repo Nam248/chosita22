@@ -128,6 +128,70 @@
         .submenu.show {
             display: flex;
         }
+          /* ส่วนกลาง */
+        .container {
+            text-align: center;
+            padding: 40px;
+        }
+        .link-button {
+            background-color: #000066;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .link-button:hover {
+            background-color: #000;
+        }
+
+        /* ส่วนท้าย */
+        footer {
+            background: #002855;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        footer .social-icons {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        footer .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 2rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer .social-icons a:hover {
+            color: #FFD700;
+        }
+        footer .contact-info {
+            margin-top: 20px;
+            font-size: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        footer .contact-info .info-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        footer .contact-info .info-item i {
+            font-size: 1.2rem;
+        }
+        footer .contact-info .info-item span {
+            font-size: 1rem;
+            color: #bbb;
+        }
     </style>
     <script>
         function toggleMenu() {
@@ -172,5 +236,37 @@
             <a href="courses.html"><i class="fa-solid fa-book"></i> สาขาแผนก</a>
         </div>
     </nav>
+<!-- ส่วนกลาง -->
+    <div class="container">
+      <h2>สมัครเข้าศึกษา</h2>
+        <p>กรุณาคลิกที่ด้านล่างเพื่อไปยังฟอร์มการสมัครเรียน</p>
+        <p> <a href="https://admission.vec.go.th/web/Login.htm?mode=index&fbclid=IwAR1IbIm8OA8cvajQQN_Vi_zvUZyIGLwkk4VaAhUsKb48jhBeBjfPEwO4ieE" class="link-button">สมัครเรียน</a> </p>
+    </div>
+
+    <!-- ส่วนท้าย -->
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/technicchan.ac.th" class="fab fa-facebook"></a>
+            <a href="https://www.tiktok.com/@youraccount" class="fab fa-tiktok"></a>
+            <a href="https://www.instagram.com/technicchan_official" class="fab fa-instagram"></a>
+        </div>
+
+        <!-- ข้อมูลติดต่อ -->
+        <div class="contact-info">
+            <div class="info-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>85 ซอย จันทคามวิถี ตำบลวัดใหม่ อำเภอเมืองจันทบุรี จันทบุรี 22000</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>โทรศัพท์: 0-3931-1198</span>
+            </div>
+            <div class="info-item">
+                <i class="fas fa-envelope"></i>
+                <span>E-mail: saraban@technicchan.ac.th</span>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
+
