@@ -128,7 +128,54 @@
         .submenu.show {
             display: flex;
         }
-       
+       <style>
+    nav {
+        background-color: #003366;
+        overflow: hidden;
+    }
+    .menu {
+        display: none; /* ซ่อนเมนูเริ่มต้น */
+        flex-direction: column;
+        background-color: #003366;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+    }
+    .menu.show {
+        display: flex; /* แสดงเมนูเมื่อเพิ่ม class "show" */
+    }
+    .menu a {
+        color: white;
+        padding: 14px 20px;
+        text-decoration: none;
+    }
+    .menu a:hover {
+        background-color: #FFD700;
+        color: #003366;
+    }
+    .submenu {
+        display: none; /* ซ่อนเมนูย่อย */
+        flex-direction: column;
+        background-color: #002244;
+    }
+    .submenu.show {
+        display: flex; /* แสดงเมนูย่อยเมื่อเพิ่ม class "show" */
+    }
+</style>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('show');
+    }
+
+    function toggleSubMenu(event) {
+        event.preventDefault();
+        const submenu = document.getElementById('submenu');
+        submenu.classList.toggle('show');
+    }
+</script>
         /* เนื้อหา */
       nav {
             background-color: #555;
