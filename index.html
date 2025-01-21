@@ -7,233 +7,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;600&display=swap" rel="stylesheet">
 
+    <!-- ใส่สคริปต์ Vercel Analytics -->
+    <script async defer src="https://cdn.vercel.analytics/analytics.js"></script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Mitr', sans-serif;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-            font-size: min(4vw, 16px); /* ปรับขนาดข้อความ */
-        }
-        /* ส่วนหัว */
-        header {
-            background: #002855;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        header img {
-            width: 100%;
-            height: auto;
-            max-height: 300px;
-            object-fit: cover;
-        }
-
-/* เอฟเฟกต์เมื่อโฮเวอร์ */
-header img:hover {
-    transform: scale(1.05); /* ขยายภาพเมื่อโฮเวอร์ */
-}
-
-  /* เมนู */
-        nav {
-            background: #003366;
-            position: relative;
-          
-        }
-
-        .menu-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            color: white;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        .menu-toggle i {
-            font-size: 1.8rem;
-        }
-
-        .menu {
-            display: none;
-            flex-direction: column;
-            background: #003366;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            z-index: 10;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            border-bottom: 1px solid #444;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s;
-            font-size: min(4vw, 16px);
-            border-radius: 5px;
-            gap: 10px;
-        }
-
-        .menu a:hover {
-            background-color: #FFD700;
-            color: #003366;
-        }
-
-        .submenu {
-            display: none;
-            flex-direction: column;
-            background: #002244;
-        }
-
-        .submenu a {
-            border-top: 1px solid #444;
-        }
-
-        .submenu a:hover {
-            background-color: #FFD700;
-            color: #003366;
-        }
-
-
-        /* เนื้อหา */
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .content h2 {
-            font-size: min(6vw, 24px); /* ปรับขนาดหัวข้อ */
-            margin-bottom: 20px;
-        }
-
-        .content p {
-            font-size: min(4vw, 16px); /* ปรับขนาดข้อความในพารากราฟ */
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-       .content img {
-    margin-top: 20px;
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px; /* เพิ่มขอบโค้งให้ภาพ */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ภาพ */
-    transition: transform 0.3s ease, filter 0.3s ease; /* เพิ่มการเปลี่ยนแปลงเมื่อตัวภาพถูกโฮเวอร์ */
-}
-
-/* เอฟเฟกต์เมื่อโฮเวอร์ */
-.content img:hover {
-    transform: scale(1.05); /* ขยายภาพเมื่อโฮเวอร์ */
-    filter: brightness(1.2); /* ปรับความสว่างให้เพิ่มขึ้นเมื่อโฮเวอร์ */
-}
-
-        /* ส่วนท้าย */
-        footer {
-            background: #002855;
-            color: white;
-            padding: 10px 0;
-        }
-
-        footer .social-icons {
-            text-align: center;
-            margin-bottom: 10px;
-        }
-
-        footer .social-icons a {
-            color: white;
-            margin: 0 10px;
-            font-size: min(6vw, 24px); /* ปรับขนาดไอคอนโซเชียล */
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer .social-icons a:hover {
-            color: #FFD700;
-        }
-
-        footer .contact-info {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            padding: 10px 20px;
-            margin: 0 auto;
-            max-width: 600px;
-        }
-
-        footer .contact-info .info-item {
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            font-size: min(3vw, 14px); /* ปรับขนาดข้อความในฟุตเตอร์ */
-        }
-
-        footer .contact-info .info-item i {
-            margin-right: 10px;
-            font-size: min(3vw, 18px); /* ปรับขนาดไอคอนในฟุตเตอร์ */
-        }
-
-        footer .contact-info .info-item span {
-            line-height: 1.5;
-        }
-
-        footer .copyright {
-            text-align: center;
-            font-size: min(3vw, 12px); /* ปรับขนาดข้อความในส่วนท้าย */
-            margin-top: 10px;
-            color: #bbb;
-        }
-
-        /* Responsive */
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none; /* ซ่อนปุ่ม hamburger บนหน้าจอใหญ่ */
-            }
-
-            .menu {
-                display: flex; /* แสดงเมนูแนวนอน */
-                flex-direction: row;
-                position: static;
-                width: auto;
-                border: none;
-            }
-
-            .menu a {
-                border: none;
-            }
-        }
-
-        /* เพิ่มคลาสนี้ให้เมนูแสดง */
-        .menu.show {
-            display: flex;
-        }
-
-        .submenu.show {
-            display: flex; /* แสดงเมนูย่อยเมื่อคลิก */
-        }
+        /* สไตล์ของเว็บไซต์ */
     </style>
 </head>
 <body>
-
     <!-- ส่วนหัว -->
     <header>
         <h1>
             <picture>
-                <!-- สำหรับหน้าจอมือถือ (ขนาดหน้าจอเล็กกว่า 768px) -->
+                <!-- สำหรับหน้าจอมือถือ -->
                 <source media="(max-width: 768px)" srcset="หัวเว็บมือถือ.jpg">
-                <!-- สำหรับหน้าจอคอมพิวเตอร์ (ขนาดหน้าจอใหญ่กว่า 768px) -->
+                <!-- สำหรับหน้าจอคอมพิวเตอร์ -->
                 <source media="(min-width: 769px)" srcset="หัวเว็บ3.jpg">
-                <!-- รูปหลักที่จะใช้ถ้าไม่ตรงกับเงื่อนไขด้านบน -->
                 <img src="มือถือ.jpg" alt="ภาพหัวเว็บ">
             </picture>
         </h1>
@@ -264,8 +53,6 @@ header img:hover {
         <p>สถาบันการอาชีวศึกษาภาคตะวันออก<br>สำนักงานคณะกรรมการการอาชีวศึกษา กระทรวงศึกษาธิการ</p>
         <img src="technic (1).png" alt="ภาพเพิ่มเติม">
     </div>
-<!-- ใส่ในส่วน <head> -->
-<script async defer src="https://cdn.vercel.analytics/analytics.js"></script>
 
     <!-- ส่วนท้าย -->
     <footer>
