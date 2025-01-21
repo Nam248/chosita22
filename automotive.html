@@ -38,98 +38,73 @@
         header img:hover {
             transform: scale(1.05);
         }
+    nav {
+        background-color: #003366;
+        position: relative;
+        z-index: 10; /* ให้เมนูอยู่ด้านบนสุด */
+    }
 
-        /* เมนู */
-        nav {
-            background-color: #003366;
-            position: relative;
-            overflow: hidden;
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #003366;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        z-index: 20; /* เพิ่ม z-index ให้เมนูหลัก */
+    }
+
+    .menu.show {
+        display: flex;
+    }
+
+    .submenu {
+        display: none;
+        flex-direction: column;
+        background: #002244;
+        z-index: 30; /* เพิ่ม z-index ให้เมนูย่อย */
+    }
+
+    .submenu.show {
+        display: flex;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        border-bottom: 1px solid #444;
+        transition: background-color 0.3s;
+        font-size: min(4vw, 16px);
+    }
+
+    .menu a:hover {
+        background-color: #FFD700;
+        color: #003366;
+    }
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('show');
+    }
+
+    function toggleSubMenu(event) {
+        event.preventDefault(); // ป้องกันการคลิกเปิดลิงก์
+        const submenu = document.getElementById('submenu');
+        submenu.classList.toggle('show');
+    }
+
+    // ตรวจสอบการคลิกนอกเมนูเพื่อปิด
+    document.addEventListener('click', (event) => {
+        const menu = document.getElementById('menu');
+        const submenu = document.getElementById('submenu');
+        const menuToggle = document.querySelector('.menu-toggle');
+
+        if (!menu.contains(event.target) && !menuToggle.contains(event.target)) {
+            menu.classList.remove('show');
+            submenu.classList.remove('show');
         }
-
-        .menu-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            color: white;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        .menu-toggle i {
-            font-size: 1.8rem;
-        }
-
-        .menu {
-            display: none;
-            flex-direction: column;
-            background-color: #003366;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            width: 100%;
-            z-index: 10;
-        }
-
-        .menu.show {
-            display: flex;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: white;
-            padding: 10px 20px;
-            border-bottom: 1px solid #444;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s;
-            font-size: min(4vw, 16px);
-            gap: 10px;
-        }
-
-        .menu a:hover {
-            background-color: #FFD700;
-            color: #003366;
-        }
-
-        .submenu {
-            display: none;
-            flex-direction: column;
-            background: #002244;
-        }
-
-        .submenu.show {
-            display: flex;
-        }
-
-        .submenu a {
-            border-top: 1px solid #444;
-        }
-
-        .submenu a:hover {
-            background-color: #FFD700;
-            color: #003366;
-        }
-
-        /* Responsive */
-        @media (min-width: 768px) {
-            .menu-toggle {
-                display: none;
-            }
-
-            .menu {
-                display: flex;
-                flex-direction: row;
-                position: static;
-                width: auto;
-                border: none;
-            }
-
-            .menu a {
-                border: none;
-            }
-        }
-       
+    }
         /* เนื้อหา */
         section {
             padding: 20px;
