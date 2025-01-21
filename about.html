@@ -106,14 +106,17 @@
 /* ส่วนกลาง */
 .main-content {
     padding: 40px;
-    text-align: center;
+    text-align: left; /* ข้อความชิดซ้าย */
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-left: 20px; /* เพิ่มระยะห่างจากขอบซ้าย */
+    padding-right: 20px; /* เพิ่มระยะห่างจากขอบขวา */
 }
 
 .main-content h2 {
-    font-size: 2rem;
+    font-size: 2.5rem; /* ขนาดฟอนต์ของหัวข้อ */
     color: #003366;
     margin-bottom: 20px;
 }
@@ -147,6 +150,8 @@
 @media (max-width: 768px) {
     .main-content {
         padding: 20px;
+        padding-left: 15px; /* ระยะห่างจากขอบซ้าย */
+        padding-right: 15px; /* ระยะห่างจากขอบขวา */
     }
 
     .styled-image {
@@ -155,33 +160,8 @@
 
     /* ลดขนาดของ h2 เมื่อแสดงผลบนมือถือ */
     .main-content h2 {
-        font-size: 1.5rem; /* ขนาดฟอนต์ที่เหมาะสมสำหรับมือถือ */
+        font-size: 1.8rem; /* ขนาดฟอนต์ที่เหมาะสมสำหรับมือถือ */
     }
-}
-
-
-@media (max-width: 768px) {
-    .main-content {
-        padding: 20px;
-    }
-
-    .styled-image {
-        max-width: 100%;
-    }
-}
-
-.styled-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 15px; /* เพิ่มมุมมน */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* เพิ่มลูกเล่นเวลาโฮเวอร์ */
-    margin-bottom: 30px; /* ระยะห่างระหว่างภาพและข้อความ */
-}
-
-.styled-image:hover {
-    transform: scale(1.05); /* ขยายขนาดเมื่อเอาเมาส์ไปวาง */
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* เปลี่ยนเงาเมื่อโฮเวอร์ */
 }
 
         /* ส่วนท้าย */
